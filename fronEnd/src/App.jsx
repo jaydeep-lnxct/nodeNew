@@ -9,14 +9,15 @@ function App() {
     file: "",
   };
 
-  const [data, setData] = useState(defaultData);
+  const [userData, setData] = useState(defaultData);
 
   const onChangeHandler = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setData({ ...userData, [e.target.name]: e.target.value });
   };
-
-  const submitHandler = async (data) => {
-	await setUserData(data);
+  console.log(userData)
+  const submitHandler = async (userData) => {
+    console.log(userData)
+    await setUserData(userData);
   };
   return (
     <div className="App">
@@ -47,14 +48,14 @@ function App() {
 
           <FormControl>
             <Input
-              type="file"
+              
               name="file"
               placeholder="file"
               onChange={(e) => onChangeHandler(e)}
             />
           </FormControl>
 
-          <Button onClick={submitHandler}>Submit</Button>
+          <Button onClick={()=> submitHandler()}>Submit</Button>
         </FormGroup>
       </div>
     </div>
